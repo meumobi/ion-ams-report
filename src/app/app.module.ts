@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
@@ -21,6 +21,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 import { UserProvider } from '../providers/user/user';
 import { ItemService } from './../providers/item.service';
 import { AppConfig } 		from './config/app.config'; 
+
+import CustomErrorHandler from './custom-error-handler';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -58,7 +60,7 @@ export function initConfig(config: AppConfig){
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: ErrorHandler, useClass: CustomErrorHandler},
     SitesProvider,
     EditorProvider,
     UserProvider,

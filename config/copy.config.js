@@ -10,6 +10,10 @@ module.exports = {
     src: ['{{SRC}}/index.html', '{{SRC}}/manifest.json', '{{SRC}}/service-worker.js'],
     dest: '{{WWW}}'
   },
+  copyErrorFile: {
+    src: ['{{SRC}}/pages/error/error.html'],
+    dest: '{{WWW}}'
+  },
   copyFonts: {
     src: ['{{ROOT}}/node_modules/ionicons/dist/fonts/**/*', '{{ROOT}}/node_modules/ionic-angular/fonts/**/*'],
     dest: '{{WWW}}/assets/fonts'
